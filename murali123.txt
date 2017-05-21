@@ -1,0 +1,12 @@
+ 
+ 
+  
+ 
+ DELIMITER //
+ CREATE PROCEDURE rama_test5
+ (IN _textInput VARCHAR(20))
+ BEGIN
+  Select  'system' as assettype,systems.name as assetname, systems.description as assetdescription from systems where systems.name LIKE CONCAT('%',_textInput,'%') or systems.description LIKE CONCAT('%',_textInput,'%') union Select  'elements' as assettype,elements.name as assetname, elements.description as assetdescription from elements where elements.name LIKE CONCAT('%',_textInput,'%') or elements.description LIKE CONCAT('%',_textInput,'%');   
+ END //
+ DELIMITER ;
+ 
